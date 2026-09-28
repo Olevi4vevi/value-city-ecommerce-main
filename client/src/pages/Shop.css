@@ -1,0 +1,130 @@
+.shop {
+  min-height: 100vh;
+  background: var(--c-cream);
+}
+
+/* --- Page head --- */
+
+.sh-head {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 36px 40px 0;
+}
+
+.sh-head h1 {
+  margin: 8px 0 4px;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--c-forest);
+}
+
+.sh-count {
+  margin: 0;
+  font-size: 13px;
+  color: var(--c-muted);
+}
+
+/* --- Filter bar: category chips + sort --- */
+
+.sh-filters {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sh-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sh-chip {
+  font: 600 12px var(--f-ui);
+  letter-spacing: 0.02em;
+  color: var(--c-pine);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.sh-chip span {
+  margin-left: 5px;
+  color: var(--c-muted);
+  font-weight: 500;
+}
+
+.sh-chip:hover { border-color: var(--c-sage); }
+
+.sh-chip.is-active {
+  background: var(--c-forest);
+  border-color: var(--c-forest);
+  color: var(--c-cream);
+}
+
+.sh-chip.is-active span { color: var(--c-mint); }
+
+.sh-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 500 12.5px var(--f-ui);
+  color: var(--c-muted);
+  flex-shrink: 0;
+}
+
+.sh-sort select {
+  font: 600 12.5px var(--f-ui);
+  color: var(--c-forest);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.sh-sort select:focus-visible {
+  outline: 2px solid var(--c-sage);
+  outline-offset: 2px;
+}
+
+/* --- Status / grid --- */
+
+.sh-status {
+  font-size: 14px;
+  color: var(--c-muted);
+  text-align: center;
+  padding: 40px 0 8px;
+}
+
+.sh-status-error { color: var(--c-clay); }
+
+.sh-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 40px 72px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px 22px;
+}
+
+@media (max-width: 1200px) {
+  .sh-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .sh-head { padding: 32px 24px 0; }
+  .sh-head h1 { font-size: 26px; }
+  .sh-filters { padding: 20px 24px 0; }
+  .sh-grid { padding: 24px 24px 56px; grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .sh-grid { grid-template-columns: repeat(2, 1fr); }
+}

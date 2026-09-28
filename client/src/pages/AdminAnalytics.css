@@ -1,0 +1,37 @@
+.an {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+.an-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.an-panel {
+  min-height: 0;
+}
+
+.an-chart {
+  flex: 1;
+  min-height: 280px;
+}
+
+.an-error {
+  margin: 0;
+  padding: 16px 0;
+  font-size: 13px;
+  color: var(--c-clay);
+}
+
+@media (max-width: 900px) {
+  .an-panels {
+    grid-template-columns: 1fr;
+  }
+}

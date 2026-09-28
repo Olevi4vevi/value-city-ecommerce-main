@@ -1,0 +1,427 @@
+.home {
+  min-height: 100vh;
+  background: var(--c-cream);
+}
+
+/* Top bar (.hm-bar / .hm-btn* / .hm-link) now lives in
+   components/SiteHeader.css, shared with the Shop page. */
+
+/* --- Hero --- */
+
+.hm-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 40px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hm-eyebrow {
+  font: 600 11px var(--f-ui);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+.hm-hero-text h1 {
+  margin: 18px 0 20px;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: var(--c-forest);
+}
+
+.hm-lede {
+  margin: 0 0 32px;
+  max-width: 400px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-pine);
+}
+
+.hm-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hm-hero-art {
+  position: relative;
+  height: 440px;
+}
+
+.hm-wash {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at 70% 30%, var(--c-leaf), transparent 60%);
+  z-index: 0;
+}
+
+.hm-frame {
+  position: absolute;
+  overflow: hidden;
+  background: var(--c-leaf);
+  box-shadow: 0 20px 48px rgba(30, 42, 34, 0.16);
+}
+
+.hm-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hm-frame-1 {
+  width: 62%;
+  height: 78%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.hm-frame-2 {
+  width: 46%;
+  height: 52%;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  border: 6px solid var(--c-cream);
+}
+
+.hm-frame-3 {
+  width: 36%;
+  height: 40%;
+  top: 8%;
+  right: 4%;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.hm-frame-empty {
+  width: 100%;
+  height: 100%;
+  background: var(--c-leaf);
+}
+
+/* --- Mission block --- */
+
+.hm-mission {
+  background: var(--c-forest);
+  padding: 64px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hm-mission-copy .eyebrow {
+  font: 600 11px var(--f-ui);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-leaf);
+}
+
+.hm-mission-copy h2 {
+  margin: 16px 0 18px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--c-cream);
+  max-width: 460px;
+}
+
+.hm-mission-copy p {
+  margin: 0;
+  max-width: 420px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--c-mint);
+}
+
+.hm-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hm-pillar {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.hm-pillar-num {
+  font: 700 13px var(--f-data);
+  color: var(--c-leaf);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.hm-pillar strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--c-cream);
+  margin-bottom: 6px;
+}
+
+.hm-pillar span {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--c-mint);
+}
+
+/* --- Shop-by-category tease grid --- */
+
+.hm-catgrid-section {
+  padding: 48px 40px 8px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hm-catgrid {
+  display: grid;
+  /* auto-fit (not auto-fill) -- when there are fewer tiles than would fit
+     at the minimum width, the existing tiles stretch to fill the row
+     instead of leaving empty track space on the right. Keeps the row
+     symmetrical regardless of how many categories render or how wide the
+     window is. */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+}
+
+.hm-cattile {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hm-cattile-img {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--c-leaf);
+  overflow: hidden;
+}
+
+.hm-cattile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.hm-cattile:hover .hm-cattile-img img { transform: scale(1.06); }
+
+.hm-cattile-noimg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 10px var(--f-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+  text-align: center;
+  padding: 0 10px;
+}
+
+.hm-cattile-body {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hm-cattile-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--c-forest);
+}
+
+.hm-cattile-count {
+  font: 500 11px var(--f-data);
+  color: var(--c-muted);
+  flex-shrink: 0;
+}
+
+/* --- Catalog --- */
+
+.hm-catalog {
+  padding: 48px 40px 72px;
+  max-width: 1400px;
+  margin: 0 auto;
+  scroll-margin-top: 90px;
+}
+
+.hm-catalog-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hm-catalog-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--c-forest);
+}
+
+.hm-justin-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--c-muted);
+}
+
+.hm-status {
+  font-size: 14px;
+  color: var(--c-muted);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.hm-status-error { color: var(--c-clay); }
+
+/* Product card (.pc*) now lives in components/ProductCard.css,
+   shared with the Shop page. */
+
+/* --- "Just in" carousel: 6 uniform cards visible, up to 10 total,
+   revealed with the prev/next arrows either side of the track. --- */
+
+.hm-justin-carousel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hm-justin-track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 4px;
+  /* Hide the scrollbar -- the arrows are the intended way to move the
+     rail, the drag/swipe still works underneath for touch/trackpad. */
+  scrollbar-width: none;
+}
+
+.hm-justin-track::-webkit-scrollbar { display: none; }
+
+.hm-justin-item {
+  flex: 0 0 calc((100% - 5 * 18px) / 6);
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.hm-justin-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--c-border);
+  background: var(--c-white);
+  color: var(--c-forest);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.hm-justin-arrow:hover:not(:disabled) { background: var(--c-leaf); }
+
+.hm-justin-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* --- Footer --- */
+
+.hm-foot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  background: var(--c-forest);
+}
+
+.hm-foot .hm-logo { color: var(--c-cream); }
+
+.hm-foot-brand p {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--c-mint);
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.hm-foot-pickup {
+  margin-top: 14px;
+  font: 500 12.5px var(--f-data);
+  color: var(--c-leaf);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hm-foot-cols {
+  display: flex;
+  gap: 56px;
+}
+
+.hm-foot-col h4 {
+  margin: 0 0 12px;
+  font: 700 10px var(--f-ui);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-mint);
+}
+
+.hm-foot-col a {
+  display: block;
+  font: 500 13px var(--f-ui);
+  color: rgba(248, 246, 240, 0.85);
+  text-decoration: none;
+  margin-bottom: 9px;
+}
+
+.hm-foot-col a:last-child { margin-bottom: 0; }
+.hm-foot-col a:hover { color: var(--c-cream); }
+
+@media (max-width: 1200px) {
+  .hm-justin-item { flex-basis: calc((100% - 3 * 18px) / 4); }
+}
+
+@media (max-width: 900px) {
+  .hm-hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 56px;
+  }
+  .hm-hero-text h1 { font-size: 40px; }
+  .hm-hero-art { height: 320px; }
+  .hm-mission { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
+  .hm-catgrid-section { padding: 32px 24px 4px; }
+  .hm-catgrid { grid-template-columns: repeat(3, 1fr); }
+  .hm-catalog { padding: 36px 24px 56px; }
+  .hm-justin-item { flex-basis: calc((100% - 2 * 18px) / 3); }
+  .hm-foot { flex-direction: column; gap: 24px; padding: 32px 24px; }
+  .hm-foot-cols { gap: 32px; }
+}
+
+@media (max-width: 560px) {
+  .hm-justin-item { flex-basis: calc((100% - 1 * 18px) / 2); }
+  .hm-justin-arrow { width: 34px; height: 34px; font-size: 17px; }
+}

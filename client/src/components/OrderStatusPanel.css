@@ -1,0 +1,175 @@
+.osp {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--c-border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Step tracker --- */
+
+.osp-steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 13px;
+}
+
+.osp-steps::before,
+.osp-steps::after {
+  content: '';
+  position: absolute;
+  top: 13px;
+  height: 2px;
+}
+
+.osp-steps::before {
+  left: 13px;
+  right: 13px;
+  background: var(--c-border);
+}
+
+.osp-steps::after {
+  left: 13px;
+  width: var(--osp-progress, 0%);
+  background: var(--c-forest);
+  transition: width 0.2s ease;
+}
+
+.osp-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 76px;
+}
+
+.osp-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 11px var(--f-data);
+  background: var(--c-white);
+  border: 1.5px solid var(--c-border);
+  color: var(--c-muted);
+}
+
+.osp-step.is-done .osp-dot {
+  background: var(--c-forest);
+  border-color: var(--c-forest);
+  color: var(--c-cream);
+}
+
+.osp-label {
+  font: 600 9px/1.3 var(--f-ui);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.osp-step.is-done .osp-label { color: var(--c-pine); }
+
+.osp-message {
+  margin: 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--c-pine);
+}
+
+/* --- Cancelled state --- */
+
+.osp-cancelled {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(184, 102, 63, 0.08);
+  border-left: 3px solid var(--c-clay);
+}
+
+.osp-x {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-clay);
+  color: var(--c-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.osp-cancelled p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--c-clay);
+}
+
+/* --- Receipt --- */
+
+.osp-receipt {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.osp-receipt-filled {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px dashed var(--c-border);
+  background: var(--c-white);
+}
+
+.osp-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  font: 500 12.5px var(--f-ui);
+  color: var(--c-ink);
+}
+
+.osp-receipt-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 0;
+  border-top: 1px dashed var(--c-border);
+  border-bottom: 1px dashed var(--c-border);
+}
+
+.osp-receipt-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font: 400 12px var(--f-data);
+  color: var(--c-muted);
+}
+
+.osp-receipt-total {
+  font-family: var(--f-data);
+  font-weight: 700;
+  color: var(--c-forest);
+}
+
+.osp-receipt-empty {
+  margin: 0;
+  padding: 10px 0 2px;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--c-muted);
+}
+
+@media (max-width: 480px) {
+  .osp-step { width: 58px; }
+  .osp-label { font-size: 8px; }
+  .osp-receipt-item { flex-direction: column; gap: 2px; }
+}

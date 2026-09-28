@@ -1,0 +1,110 @@
+.cd-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(30, 42, 34, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: cd-fade 0.12s ease-out;
+}
+
+.cd-box {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  box-shadow: 0 30px 70px rgba(30, 42, 34, 0.28);
+  animation: cd-rise 0.14s ease-out;
+}
+
+.cd-box h2 {
+  margin: 4px 0 0;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--c-forest);
+}
+
+.cd-message {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-ink);
+}
+
+.cd-detail {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--c-border);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--c-muted);
+}
+
+.cd-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cd-cancel,
+.cd-confirm {
+  font: 600 12px var(--f-ui);
+  letter-spacing: 0.04em;
+  padding: 11px 20px;
+  border: 1px solid var(--c-border);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.cd-cancel {
+  background: var(--c-white);
+  color: var(--c-pine);
+}
+
+.cd-cancel:hover { background: var(--c-cream); }
+
+.cd-confirm {
+  background: var(--c-forest);
+  border-color: var(--c-forest);
+  color: var(--c-cream);
+}
+
+.cd-confirm:hover { background: var(--c-pine); }
+
+.cd-confirm.is-danger {
+  background: #B8663F;
+  border-color: #B8663F;
+}
+
+.cd-confirm.is-danger:hover { background: #9A5133; }
+
+.cd-cancel:focus-visible,
+.cd-confirm:focus-visible {
+  outline: 2px solid var(--c-sage);
+  outline-offset: 2px;
+}
+
+@keyframes cd-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cd-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cd-backdrop, .cd-box { animation: none; }
+  .cd-cancel, .cd-confirm { transition: none; }
+}

@@ -1,0 +1,138 @@
+/* --- Product card (shared by Home + Shop) --- */
+
+.pc {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  /* Grid/flex items default to min-width: auto, which lets a large source
+     image force this card (and its whole grid COLUMN, since columns are
+     shared across every row) wider than its fair 1fr share -- "grid
+     blowout". This overrides that so every card, and every column, stays
+     the same width regardless of how big any one product's original photo
+     is. */
+  min-width: 0;
+}
+
+.pc:focus-visible {
+  outline: 2px solid var(--c-sage);
+  outline-offset: 3px;
+}
+
+.pc-img {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--c-leaf);
+  overflow: hidden;
+}
+
+.pc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.pc:hover .pc-img img { transform: scale(1.05); }
+
+.pc-noimg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 10px var(--f-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+.pc-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  font: 700 9px/1 var(--f-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--c-amber);
+  color: var(--c-forest);
+  padding: 5px 8px;
+}
+
+.pc-hover {
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.pc:hover .pc-hover,
+.pc:focus-within .pc-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Price label -- display only, not a button. Clicking it behaves like
+   clicking anywhere else on the card (opens the product page). */
+.pc-price {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font: 600 12px var(--f-ui);
+  letter-spacing: 0.04em;
+  text-align: center;
+  background: var(--c-forest);
+  color: var(--c-cream);
+  padding: 10px 4px;
+  user-select: none;
+}
+
+/* Outlined "Add to cart" button under the filled price label -- keeps the
+   two visually distinct so the label doesn't read as a second button. */
+.pc-cart {
+  width: 100%;
+  font: 600 10px var(--f-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--c-white);
+  color: var(--c-forest);
+  border: 1px solid var(--c-forest);
+  padding: 10px 4px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pc-cart:hover {
+  background: var(--c-forest);
+  color: var(--c-cream);
+}
+
+.pc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 1px 0;
+}
+
+.pc-cat {
+  font: 600 9px/1 var(--f-ui);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+.pc-body h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--c-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

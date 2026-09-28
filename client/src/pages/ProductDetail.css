@@ -1,0 +1,319 @@
+.pd {
+  min-height: 100vh;
+  background: var(--c-cream);
+}
+
+.pd-status {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  font-size: 14px;
+  color: var(--c-muted);
+  text-align: center;
+}
+
+/* --- Not found --- */
+
+.pd-notfound {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 90px 40px 110px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: pd-rise 0.35s ease-out;
+}
+
+.pd-notfound h1 {
+  margin: 6px 0 4px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--c-forest);
+}
+
+.pd-notfound p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--c-muted);
+}
+
+/* --- Breadcrumb --- */
+
+.pd-crumb {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 12px var(--f-ui);
+  color: var(--c-muted);
+}
+
+.pd-crumb a {
+  color: var(--c-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.pd-crumb a:hover { color: var(--c-forest); }
+
+.pd-crumb span:not(.pd-crumb-current) {
+  color: var(--c-sage);
+  opacity: 0.6;
+}
+
+.pd-crumb-current {
+  color: var(--c-ink);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 260px;
+}
+
+/* --- Main: media + info, side by side like the ThredUp reference --- */
+
+.pd-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 26px 40px 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+  animation: pd-rise 0.4s ease-out;
+}
+
+/* Framed panel: the whole photo always shows (no cropping of book titles,
+   logos, etc.), sitting on a soft mat at a gentle 4:5 ratio. */
+.pd-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #fff;
+  border: 1px solid var(--c-border);
+  padding: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(30, 42, 34, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.pd-media:hover img { transform: scale(1.02); }
+
+.pd-noimg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 11px var(--f-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+/* Sticks alongside the image on scroll -- the product panel on a fashion
+   site's PDP is short enough that it never needs its own scrollbar, so it
+   can just stay in view the way the photo does. */
+.pd-info {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding-top: 6px;
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.pd-cat {
+  font: 600 11px/1 var(--f-ui);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+.pd-info h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--c-forest);
+}
+
+.pd-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 2px;
+}
+
+.pd-chip {
+  font: 600 10px var(--f-ui);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--c-pine);
+  background: var(--c-leaf);
+  padding: 6px 11px;
+}
+
+.pd-stock {
+  font: 500 12px var(--f-ui);
+  color: var(--c-muted);
+}
+
+.pd-stock.is-out { color: var(--c-clay); }
+
+.pd-price {
+  margin: 10px 0 2px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--c-forest);
+}
+
+.pd-btn-row {
+  display: flex;
+  max-width: 360px;
+  margin-top: 8px;
+}
+
+.pd-cart {
+  flex: 1;
+  font: 600 12px var(--f-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--c-forest);
+  padding: 16px 4px;
+  cursor: pointer;
+  background: var(--c-forest);
+  color: var(--c-cream);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.pd-cart:hover:not(:disabled) {
+  background: var(--c-pine);
+  border-color: var(--c-pine);
+}
+
+.pd-cart.is-added {
+  background: var(--c-sage);
+  border-color: var(--c-sage);
+  color: var(--c-cream);
+}
+
+.pd-cart:disabled {
+  background: var(--c-border);
+  border-color: var(--c-border);
+  color: var(--c-muted);
+  cursor: not-allowed;
+}
+
+.pd-desc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--c-border);
+  max-width: 480px;
+}
+
+.pd-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--c-ink);
+  white-space: pre-wrap;
+}
+
+.pd-desc.is-empty {
+  color: var(--c-muted);
+  font-style: italic;
+}
+
+.pd-note {
+  margin: 20px 0 0;
+  font-size: 12px;
+  color: var(--c-muted);
+  max-width: 480px;
+}
+
+/* --- Similar items --- */
+
+.pd-similar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 40px 76px;
+  border-top: 1px solid var(--c-border);
+}
+
+.pd-similar-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 32px 0 22px;
+}
+
+.pd-similar-head h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--c-forest);
+}
+
+.pd-similar-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 26px 18px;
+}
+
+@keyframes pd-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-main, .pd-notfound { animation: none; }
+  .pd-media img { transition: none; }
+}
+
+@media (max-width: 1200px) {
+  .pd-main { grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 48px; padding: 24px 32px 52px; }
+  .pd-crumb { padding: 24px 32px 0; }
+  .pd-similar { padding: 8px 32px 64px; }
+  .pd-similar-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .pd-main { grid-template-columns: 1fr; gap: 26px; }
+  .pd-media { max-width: 380px; width: 100%; }
+  .pd-info { position: static; }
+}
+
+@media (max-width: 640px) {
+  .pd-crumb { padding: 18px 20px 0; }
+  .pd-main { padding: 18px 20px 40px; }
+  .pd-info h1 { font-size: 25px; }
+  .pd-btn-row { max-width: none; }
+  .pd-media { padding: 16px; }
+  .pd-similar { padding: 8px 20px 48px; }
+  .pd-similar-grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,333 @@
+.au {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  background: var(--c-cream);
+}
+
+/* --- Left panel --- */
+
+.au-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 44px 44px;
+  background: var(--c-cream);
+  overflow: hidden;
+}
+
+.au-side-logo {
+  font: 600 17px var(--f-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-forest);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.au-collage {
+  position: relative;
+  flex: 1;
+  min-height: 320px;
+  margin: 24px 0;
+}
+
+.au-blob {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--c-leaf);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.au-shot {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--c-mint);
+  border: 5px solid var(--c-cream);
+  box-shadow: 0 14px 32px rgba(30, 42, 34, 0.16);
+}
+
+.au-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.au-shot.is-blank {
+  background: linear-gradient(140deg, var(--c-mint) 0%, var(--c-sage) 100%);
+}
+
+.au-shot-1 {
+  width: 54%;
+  aspect-ratio: 1;
+  top: 4%;
+  right: 6%;
+  z-index: 3;
+}
+
+.au-shot-2 {
+  width: 42%;
+  aspect-ratio: 1;
+  bottom: 8%;
+  left: 2%;
+  z-index: 2;
+}
+
+.au-shot-3 {
+  width: 34%;
+  aspect-ratio: 1;
+  bottom: 2%;
+  right: 14%;
+  z-index: 1;
+}
+
+.au-side-copy {
+  position: relative;
+  z-index: 4;
+  flex-shrink: 0;
+}
+
+.au-tag {
+  margin: 0 0 12px;
+  max-width: 320px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--c-forest);
+}
+
+.au-side-meta {
+  font: 600 10.5px var(--f-ui);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+/* --- Right panel --- */
+
+.au-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px;
+  background: var(--c-cream);
+}
+
+.au-back {
+  position: absolute;
+  top: 40px;
+  right: 48px;
+  font: 500 12.5px var(--f-ui);
+  color: var(--c-muted);
+  text-decoration: none;
+}
+
+.au-back:hover { color: var(--c-forest); }
+
+.au-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.au-head { margin-bottom: 4px; }
+
+.au-eyebrow {
+  font: 600 11px var(--f-ui);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-sage);
+}
+
+.au-head h1 {
+  margin: 12px 0 8px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--c-forest);
+}
+
+.au-head p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--c-muted);
+}
+
+.au-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.au-field > span {
+  font: 600 10.5px var(--f-ui);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-pine);
+}
+
+.au-field > span i {
+  font-style: normal;
+  letter-spacing: 0.08em;
+  color: var(--c-muted);
+  font-weight: 500;
+}
+
+.au-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.au-field input {
+  width: 100%;
+  font: 400 14.5px var(--f-ui);
+  padding: 13px 0;
+  border: none;
+  border-bottom: 1px solid rgba(30, 42, 34, 0.2);
+  background: none;
+  color: var(--c-ink);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.au-field input::placeholder { color: rgba(119, 135, 124, 0.6); }
+
+.au-field input:focus { border-bottom-color: var(--c-forest); }
+
+.au-field input[type="password"]::-ms-reveal { display: none; }
+
+.au-pw {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.au-pw input { padding-right: 34px; }
+
+.au-pw button {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: none;
+  color: var(--c-muted);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.au-pw button svg { width: 100%; height: 100%; }
+.au-pw button:hover { color: var(--c-forest); }
+
+.au-hint {
+  font-style: normal;
+  font-size: 11.5px;
+  color: var(--c-muted);
+}
+
+.au-error {
+  font-size: 13px;
+  color: #7a2e24;
+  background: #f6dfda;
+  padding: 11px 14px;
+  border-left: 3px solid var(--c-clay);
+}
+
+.au-success {
+  font-size: 13px;
+  color: var(--c-pine);
+  background: var(--c-leaf);
+  padding: 11px 14px;
+  border-left: 3px solid var(--c-sage);
+}
+
+.au-code {
+  font-family: var(--f-data) !important;
+  font-size: 22px !important;
+  letter-spacing: 0.4em;
+}
+
+.au-linklike {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--c-forest);
+  text-decoration: none;
+  border-bottom: 1px solid var(--c-sage);
+  padding-bottom: 1px;
+  cursor: pointer;
+}
+
+.au-linklike:hover { border-color: var(--c-forest); }
+.au-linklike:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.au-forgot {
+  align-self: flex-end;
+  margin-top: -2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--c-muted);
+  text-decoration: none;
+}
+
+.au-forgot:hover { color: var(--c-forest); }
+
+.au-submit {
+  margin-top: 6px;
+  font: 600 12px var(--f-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px;
+  border: none;
+  background: var(--c-forest);
+  color: var(--c-cream);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.au-submit:hover { background: var(--c-pine); }
+.au-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.au-switch {
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--c-muted);
+}
+
+.au-switch a {
+  color: var(--c-forest);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--c-sage);
+  padding-bottom: 1px;
+}
+
+.au-switch a:hover { border-color: var(--c-forest); }
+
+@media (max-width: 860px) {
+  .au { grid-template-columns: 1fr; }
+  .au-side { padding: 28px 24px 32px; }
+  .au-collage { min-height: 280px; margin: 18px 0; }
+  .au-tag { font-size: 21px; }
+  .au-main { padding: 36px 24px 48px; }
+  .au-back { top: 20px; right: 24px; }
+  .au-two { grid-template-columns: 1fr; }
+}

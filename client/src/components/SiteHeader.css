@@ -1,0 +1,176 @@
+/* --- Top bar (shared by Home + Shop) --- */
+
+.hm-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 40px;
+  height: 70px;
+  background: var(--c-white);
+  border-bottom: 1px solid var(--c-border);
+  transition: box-shadow 0.2s ease;
+}
+
+.hm-bar.is-stuck {
+  box-shadow: 0 1px 12px rgba(30, 42, 34, 0.07);
+}
+
+.hm-logo {
+  font: 600 18px var(--f-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-forest);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.hm-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex: 1;
+  padding-left: 8px;
+}
+
+.hm-navlink {
+  font: 500 13px var(--f-ui);
+  color: var(--c-muted);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.hm-navlink:hover { color: var(--c-forest); }
+
+.hm-navlink.is-active {
+  color: var(--c-forest);
+  border-bottom-color: var(--c-forest);
+}
+
+.hm-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.hm-link {
+  font: 500 13px var(--f-ui);
+  color: var(--c-pine);
+  text-decoration: none;
+}
+
+.hm-link:hover { color: var(--c-forest); }
+
+/* Profile icon -- the only way into the customer dashboard from the public
+   storefront. Login/register land on Home first; clicking this is the
+   explicit "choose to go to your dashboard" step from the feedback notes. */
+.hm-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--c-mint);
+  color: var(--c-forest);
+  font: 700 13px var(--f-ui);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.hm-profile:hover { background: var(--c-sage); color: var(--c-cream); }
+
+.hm-profile:focus-visible {
+  outline: 2px solid var(--c-forest);
+  outline-offset: 2px;
+}
+
+.hm-btn,
+.hm-btn-ghost,
+.hm-btn-outline {
+  font: 600 11px var(--f-ui);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  display: inline-block;
+}
+
+.hm-btn {
+  background: var(--c-forest);
+  color: var(--c-cream);
+}
+
+.hm-btn:hover { background: var(--c-pine); }
+
+.hm-btn-lg { padding: 15px 30px; font-size: 12px; }
+
+.hm-btn-ghost {
+  background: none;
+  border-color: var(--c-border);
+  color: var(--c-pine);
+}
+
+.hm-btn-ghost:hover { background: var(--c-leaf); }
+
+.hm-btn-outline {
+  background: none;
+  border-color: var(--c-forest);
+  color: var(--c-forest);
+  padding: 15px 30px;
+  font-size: 12px;
+}
+
+.hm-btn-outline:hover { background: var(--c-forest); color: var(--c-cream); }
+
+.hm-cart-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 13px var(--f-ui);
+  color: var(--c-pine);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.hm-cart-link:hover {
+  background: var(--c-leaf);
+  color: var(--c-forest);
+}
+
+.hm-cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -14px;
+  background: var(--c-clay);
+  color: var(--c-cream);
+  font: 700 10px var(--f-ui);
+  border-radius: 50%;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+@media (max-width: 900px) {
+  .hm-bar { padding: 0 20px; height: 62px; gap: 14px; }
+  .hm-nav { gap: 14px; padding-left: 0; }
+}
+
+@media (max-width: 640px) {
+  .hm-nav { display: none; }
+}

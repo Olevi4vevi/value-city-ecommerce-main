@@ -1,0 +1,116 @@
+.cust-shell {
+  min-height: 100vh;
+  background: var(--c-cream);
+  display: flex;
+  flex-direction: column;
+}
+
+.cust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 0 40px;
+  height: 72px;
+  background: var(--c-white);
+  border-bottom: 1px solid var(--c-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.cust-logo {
+  font: 600 16px var(--f-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-forest);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.cust-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+}
+
+.cust-nav-link {
+  position: relative;
+  font: 500 13.5px var(--f-ui);
+  color: var(--c-muted);
+  text-decoration: none;
+  padding: 26px 0;
+  transition: color 0.15s ease;
+}
+
+.cust-nav-link:hover { color: var(--c-forest); }
+
+.cust-nav-link.is-on { color: var(--c-forest); font-weight: 600; }
+
+.cust-nav-link.is-on::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--c-sage);
+}
+
+.cust-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cust-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--c-leaf);
+  color: var(--c-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cust-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.cust-logout {
+  font: 500 12.5px var(--f-ui);
+  background: none;
+  border: none;
+  border-left: 1px solid var(--c-border);
+  padding: 4px 0 4px 16px;
+  margin-left: 4px;
+  color: var(--c-muted);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.cust-logout:hover { color: var(--c-clay); }
+
+.cust-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .cust-bar {
+    padding: 0 20px;
+    gap: 18px;
+    height: 62px;
+  }
+  .cust-nav { gap: 18px; }
+  .cust-nav-link { font-size: 13px; padding: 21px 0; }
+  .cust-name { display: none; }
+  .cust-logout { padding-left: 12px; }
+}
